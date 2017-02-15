@@ -11,14 +11,18 @@ Javascript - cross-platform OO scripting language.
         - Properties and methods can be added to objs dynamically
     -Var types are not declared
     -Cannot automatically write to hard disck
+    -dynamically typed language - don't have to specify data type of variable, and they're converted automatically as needed.
 
 /**Comments**/
 
 Declarations:
     var - declares a variable, optionally initializing it to a value
+        - all var statements in a function should be placed as near to the top of the function as possible
     let - declares a block scope local variable, optionally initializing it to a value.
         - I only want to use the var right here (e.g. a for loop)
+        - let does not hoist
     const - Declares a read-only named constant; Must have an initial value
+
 
 Evaluating Variables. 
     - Declared variables with no var or let are set to undefined
@@ -28,10 +32,14 @@ Evaluating Variables.
 Variable scope:
     - hoisting: Refering to a variable declared later.
         -hoisted variables are undefined until they pass their initial Declarations
-        e.g.
-        console.log(x);//returns undefined
-        var x = 1;
-        console.log(x);//returns 1
+            e.g.
+            console.log(x);//returns undefined
+            var x = 1;
+            console.log(x);//returns 1
+        -let vars do not hoist 
+            e.g.
+            console.log(x);//ReferenceError
+            let x = 1;
 
 Undefined:
     - undefined acts as false in boolean context
@@ -40,3 +48,95 @@ Undefined:
 Null
     - null is false in boolean
     - null is 0 in numerical context
+
+Global Variables:
+    - properties of the global Object   
+    - in web pages window is the global object
+    - you can access global variables declared in one window or frame from another window or frame by specifying the window or frame name
+
+Constants: const
+    - read only
+    - can't be re-declared
+    - has to be initialized to a value
+    - same scope as let. block scoped
+    -cannot declare a constant with the same name as a function or variable within the same scope
+    - constants can be objects
+    - properties of constants are not protected and can be overwritten
+Function declaration:
+    function foo() {...}
+Function expression:
+    var baz = function(){...}
+
+Data Structures and types:
+    Primitives:
+        -boolean
+        -null 
+            -case sensitive !=Null
+        -undefined
+        -Number
+        -String
+        -Symbol
+    Object
+
+Data type conversion:
+    - You don't have to specify the type of a variable when you declare it
+    - Data types are automatically converted as needed
+        e.g. var x = 42; x ="hi";//is valid 
+    - expressions with a string and + automatically concat vals and string
+        e.g. var x = 10 + 'hi'; //x = "10hi";
+    -if other operator, works as numerical  
+        e.g. '37'-7 //30
+        e.g. 'cat - 7 //NaN
+
+Converting strings to numbers
+    parseInt(string, radix) - only returns whole numbers; radix is base(between 2 and 36)
+        parseInt('10.5',10)//10
+        parseInt('10',10)//10
+        parseInt('10',2)//2
+    parseFloat(string) - returns a floating point number
+        parseFloat('FF2');//NaN
+        parseFloat('3.14');//3.14
+    (unary plus) or (+ '<stirng>') - retrieves a number from a string
+        -parenthesis for clarity not required
+        e.g.
+        '1.1' + '1.1' = '1.11.1'
+        (+'1.1') + (+'1.1') = 2.2   
+
+Literals - used to represent values in your script
+    -fixed values you literally provide in your script
+    -Array Literals
+    -Boolean Literals
+    -Floating Point Literals
+    -Integers
+    -Object Literals
+    -RegExp Literals
+    -String Literals
+
+    Array literals - a list of zero or more expressons, each an array element, enclosed in []
+        - initialized with specified values as elements
+        - length is the number of args specified
+        - can have undefined elements
+            var fish =['Lion', , 'Angel']; //fish[1] is undefined; fsh length = 3
+            but you should write as fish =['Lion', undefined, 'Angel']
+        - 0 indexed
+        -trailing commas ignored 
+            var fish =['Lion', , 'Angel', ] //fish length = 3
+
+
+
+
+
+//TODO: Boolean LITERALS
+
+Function Hoisting: Function declarations get hoisted. Not Function expressions;
+    /* Function declaration */
+    foo(); // "bar"
+    function foo() {
+        console.log('bar');
+    }
+
+    /* Function expression */
+    baz(); // TypeError: baz is not a function
+    var baz = function() {
+        console.log('bar2');
+    };
