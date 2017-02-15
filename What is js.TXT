@@ -1,0 +1,42 @@
+Javascript - cross-platform OO scripting language.
+    - In a host enviornment js can connect to the objs in the env and control them
+    -Has standard objs.
+        - Arrays
+        - Date
+        - Math
+    -Client side js - supplies core to browser and its Document Object Model
+    -Server Side Js - supplies objs relevant to running js on a Server
+    -Object Oriented - No distinction between types of objs.
+        - Inheritance through prototype mechanism
+        - Properties and methods can be added to objs dynamically
+    -Var types are not declared
+    -Cannot automatically write to hard disck
+
+/**Comments**/
+
+Declarations:
+    var - declares a variable, optionally initializing it to a value
+    let - declares a block scope local variable, optionally initializing it to a value.
+        - I only want to use the var right here (e.g. a for loop)
+    const - Declares a read-only named constant; Must have an initial value
+
+Evaluating Variables. 
+    - Declared variables with no var or let are set to undefined
+    - An attempt to access an undeclared variable will result in a ReferenceError
+        - if "var x;" then "x === undefined" is true
+
+Variable scope:
+    - hoisting: Refering to a variable declared later.
+        -hoisted variables are undefined until they pass their initial Declarations
+        e.g.
+        console.log(x);//returns undefined
+        var x = 1;
+        console.log(x);//returns 1
+
+Undefined:
+    - undefined acts as false in boolean context
+    - undefined is NaN in numerical context
+
+Null
+    - null is false in boolean
+    - null is 0 in numerical context
