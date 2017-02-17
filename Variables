@@ -1,3 +1,12 @@
+Declarations:
+    var - declares a variable, optionally initializing it to a value
+        - all var statements in a function should be placed as near to the top of the function as possible
+    let - declares a block scope local variable, optionally initializing it to a value.
+        - I only want to use the var right here (e.g. a for loop)
+        - let does not hoist
+    const - Declares a read-only named constant; Must have an initial value
+
+
 Evaluating Variables. 
     - Declared variables with no var or let are set to undefined
     - An attempt to access an undeclared variable will result in a ReferenceError
@@ -36,9 +45,10 @@ Constants: const
     -cannot declare a constant with the same name as a function or variable within the same scope
     - constants can be objects
     - properties of constants are not protected and can be overwritten
-
-
-
+Function declaration:
+    function foo() {...}
+Function expression:
+    var baz = function(){...}
 
 Data Structures and types:
     Primitives:
@@ -95,29 +105,55 @@ Literals - used to represent values in your script
         -trailing commas ignored 
             var fish =['Lion', , 'Angel', ] //fish length = 3
 
+    Boolean literals - Either true or flase
+        -boolean object is a wraper around the boolean primitive
+        -Boolean object eg:
+            -var foo = Boolean(bar); //equals foo = !!bar;
+                - foo.baz = 1;//foo.baz returns undefined
+            -var foo = new Boolean(bar); // equals var foo Object(Boolean);
+                -foo.baz = 1; // foo.baz returns 1
+    
+    Integers - Can be expressed in decimal(base 10), hexadecimal(b16), octal(b8), binary(b2)
+        -Decimal - no leading 0, eg. 0, 1, 10, -300
+        -Octal - leading 0. eg. 015, 0001, -0o77
+        -Hexdecimal- leading 0x e.g 0x00111, -0xF1A7
+        -binary - 0b. e.g. 0b0011, -0b11
+
+    Floating point lterals
+        - Decimal integer that can be singed + or -
+        - A decimal point
+        - A fraction
+        - An exponent 
+        3.1415926
+        -.123456789
+        -3.1E+12
+        .1e-23
+
+    Object Literals-
+        - List of zero or more pairs of proprietary names and associated values of an object within {}
+        e.g.
+            {
+                a:1,
+                b:"cat",
+                c:{a:1,b:2},
+                f: myFunc('param')
+            }
+
+        - property names can be a numeric or string literals (including empty string '')
+        - propert names have to be identifiers (alphanumeric chars and $ or _ and can't start with a digit)
+            - prop names can be accessed through . notation or array if identifiers
+            - otherwise they'd have to be enclosed in '' e.g. {'!':1,'?':2}
+            - and can only be accessed with [] notation
+        - values can be literals or functions
+        e.g.
+            var foo = {a: 'alpha', 2: 'two'};
+            console.log(foo.a);    // alpha
+            console.log(foo[2]);   // two
+            //console.log(foo.2);  // Error: missing ) after argument list
+            //console.log(foo[a]); // Error: a is not defined
+            console.log(foo['a']); // alpha
+            console.log(foo['2']); // two
 
 
 
-
-
-
-
-
-
-Function declaration:
-    function foo() {...}
-Function expression:
-    var baz = function(){...}
-
-Function Hoisting: Function declarations get hoisted. Not Function expressions;
-    /* Function declaration */
-    foo(); // "bar"
-    function foo() {
-        console.log('bar');
-    }
-
-    /* Function expression */
-    baz(); // TypeError: baz is not a function
-    var baz = function() {
-        console.log('bar2');
-    };
+//TODO: RegExp literals
