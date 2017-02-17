@@ -1,0 +1,28 @@
+Statements- Each of the actions done by javascript.
+    - Separate statements with ;
+
+Block Statement-
+    - Used to group statements together. A block is delimted by a pair of curly brackets
+    - Commonly used with control flow statements like if, for, while
+    - before ES6 no block scope
+    - DO NOT DEFINE SCOPE
+
+Conditional Statements- Set of commands that execute if a specified condition is true
+    - if...else
+        -execute a statement if condition is true
+        - optional else if to evaluate additional conditions
+        - optional else to evaluate if all else fails
+        - Can use block statement after if and else, but optional
+        - bad practice to use assignments in condition
+            -if you have to, put parens areound statement e.g. if((x=y))//STILL TERRIBLE
+    Flasy Values- following evalue to to false. know as Falsy values:
+        - false
+        - undefined
+        - null
+        - 0
+        - NaN
+        - empty String ("")
+        NOTE: EVERYTHING ELSE EVALUATES TO TRUE
+            if(true && 4 && "cat" && function(){console.log('hi');} && (x = 3) )//evals true
+
+    //TODO: SWITCH https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling
