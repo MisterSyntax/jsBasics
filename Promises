@@ -1,0 +1,52 @@
+/**
+Promises- Allow you to control the flow of deferred abd asynch operations
+    -A promise is one of these states:
+        -pending: initial state, not fulfilled or rejected
+        -fulfilled: successful operations
+        -rejected: failed operations
+        -settled: the Promise is either fulfilled or rejected,  but not pending
+    -Promise Object: Used for asynchronous computations
+        new Promise(\/* executor *\/ function(resolve,reject){...})
+        executor- functon that is passed with arguments  resolve and reject 
+            - executed immediately by the Promis implement
+            - passes resolve and reject function
+
+    Formula:
+      
+**/
+
+
+            /* ES5 */
+            var isMomHappy = false;
+
+            // Promise
+            var willIGetNewPhone = new Promise(
+                function (resolve, reject) {
+                    if (isMomHappy) {
+                        var phone = {
+                            brand: 'Samsung',
+                            color: 'black'
+                        };
+                        resolve(phone); // fulfilled
+                    } else {
+                        var reason = new Error('mom is not happy');
+                        reject(reason); // reject
+                    }
+
+                }
+            );
+
+            // call our promise
+            var askMom = function () {
+                willIGetNewPhone
+                    .then(function (fulfilled) {
+                        // yay, you got a new phone
+                        console.log(fulfilled);
+                    // output: { brand: 'Samsung', color: 'black' }
+                    })
+                    .catch(function (error) {
+                        // oops, mom don't buy it
+                        console.log(error.message);
+                    // output: 'mom is not happy'
+                    });
+            };
