@@ -1,0 +1,93 @@
+Statements- Each of the actions done by javascript.
+    - Separate statements with ;
+
+Block Statement-
+    - Used to group statements together. A block is delimted by a pair of curly brackets
+    - Commonly used with control flow statements like if, for, while
+    - before ES6 no block scope
+    - DO NOT DEFINE SCOPE
+
+Conditional Statements- Set of commands that execute if a specified condition is true
+    - if...else
+        -execute a statement if condition is true
+        - optional else if to evaluate additional conditions
+        - optional else to evaluate if all else fails
+        - Can use block statement after if and else, but optional
+        - bad practice to use assignments in condition
+            -if you have to, put parens areound statement e.g. if((x=y))//STILL TERRIBLE
+    Flasy Values- following evalue to to false. know as Falsy values:
+        - false
+        - undefined
+        - null
+        - 0
+        - NaN
+        - empty String ("")
+        NOTE: EVERYTHING ELSE EVALUATES TO TRUE
+            if(true && 4 && "cat" && function(){console.log('hi');} && (x = 3) )//evals true
+
+    -switch: Evaluate 1 expression, and attempt to match the expression's value to a case label. e.g.
+        switch (expression) {
+            case label_1:
+                statements_1
+                break;
+            case label_2:
+                statements_2
+                break;
+                ...
+            default:
+                statements_def
+                break;
+        }
+
+Exception Handling Statements:
+    - can throw exceptions using throw statement
+    - handle Exceptions using try catch
+    - ECMAScrpt Exception types:
+        -EvalError
+        -InternalError
+        -RangeError
+        -ReferenceError
+        -SyntaxError
+        -URIError
+    -DOMException - occurs as a rsult of calling a method or accessing in a web API
+    -DOMError
+
+    throw statement - throws an excpetion; kinda like creating an error
+        - you specify the expression containing the value to be thrown
+            throw expression;
+            try { 
+                if(x == "") {
+                    throw "is Empty";
+                }
+                if(isNaN(x)){
+                    throw "not a number";
+                } 
+                if(x > 10){
+                    throw "too high";
+                } 
+                if(x < 5){
+                    throw "too low";
+                } 
+            }
+            catch(err) {
+                message.innerHTML = "Input " + err;
+            }
+
+        try...catch - marks a block of statements and specifies one or more responses should an exception be thrown
+            - try is the code to try.
+                - you can throw errors with throw
+                - once an error is thrown, control to catch block
+            - catch is where you process and handle any errors/excpetions
+            - finally block - attach to try catch to have code run regardless of wether an error/exception is thrown
+                openMyFile();
+                try {
+                    writeMyFile(theData); //This may throw a error
+                } catch(e) {  
+                    handleError(e); // If we got a error we handle it
+                } finally {
+                    closeMyFile(); // always close the resource
+                }
+                - Any return in finally overwrites returns in try...catch
+                - You can nest try...catch
+
+        
