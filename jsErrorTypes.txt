@@ -1,1 +1,31 @@
+EvalError - Occurs when error regarding eval()
+
+InternalError - Occurs when an internatl error in the JS engine is thrown
+    - "too much recursion"
+    - "too many parentheses in Regular expresion"
+    - "array initializer too large"
+    - "too many switch cases"
+
 ReferenceError - Occurs when attempting to access an undeclared variable
+    - var x = undeclaredVariable;
+
+RangeError - Occurs when a numeric variable or param is outside of the valid Range 
+    var check = function(num) {
+        if (num < MIN || num > MAX) {
+            throw new RangeError('Parameter must be between ' + MIN + ' and ' + MAX);
+        }
+    };
+    try {
+        check(500);
+    }
+    catch (e) {
+        if (e instanceof RangeError) {
+            // Handle range error
+        }
+    }
+SyntaxError - caused when trying to run syntatically invalid code
+    console.log('asdf'\) : Uncaught SyntaxError: Invalid or unexpected token
+
+TypeError - When a variable or parameter is not a valid TypeError
+
+URIError - Occurs when encodeURI or decodeURI are passe dinvalid parameters
