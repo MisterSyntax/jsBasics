@@ -154,6 +154,28 @@ Literals - used to represent values in your script
             console.log(foo['a']); // alpha
             console.log(foo['2']); // two
 
+    RegExp literals-
+        - a patter enclosed between slashes. E.g.
+            var re = /ab+c/;
 
-
-//TODO: RegExp literals
+    String Literals-
+        - Zero or more chars enclosed in ' or ". 
+        - can call any of the methods of the String Object on a String literal
+            -js converts literals to a temporary string obj.
+            -e.g. "john's cat".length
+        - \n is a line-feed
+        - E.S.6 You can use template literals. Notice the string is using the ` not '
+            e.g.
+            var name="Andrew"; var job="plumber";
+            console.log(`Hello ${name}, your job is a ${plumber}`);
+        - should avoid String obj unless needed
+        - special charachters are specified via \
+            \0 Null byte 
+            \t tab
+            \r Carriage returns
+            \n new line
+        - can escape chars with \ e.g. 'Sam\'s string'
+        - can escape returns e.g.
+            "I am \
+            not causing an error"
+    
