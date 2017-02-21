@@ -1,0 +1,120 @@
+/**
+ * Loops! - offer a quick way to do something repeatededly
+ */
+
+/**
+ * For Loop: repeats until a specified condition evaluates to false
+ *  -The incrementExpression happens after the statement runs
+ */
+for([initialExpression]; [condition]; [incrementExpression])
+    statement or statements in{}
+
+//e.g.
+var i = 0;
+for(i = 0; i< 4;i++){
+    //doStuff();
+}
+
+/**
+ * do...while - repeats until a specified condition evaluates to false.
+ *      -will always execute at least once.
+ *      -condition checked after statement is run
+ */
+do{
+    statements
+}while(condition)
+
+/**
+ * @while - executes its statements as long as a specfied condition evaluates to true
+ *  - will check condition before running the statement, so not always guaranteed to run
+ */
+
+while(condition){
+
+}
+
+/**
+ * Label - provides a statement with an identifier
+ *      - kind of like creating a function that runs immediately
+ *      - used to allow you to refer what to break out of especially in the cape of nested loops
+ *      - you can break a parent loop from a child loop
+ *
+ */
+var x=1;
+var y;
+
+loop1:
+while (x === 1){
+    loop2:
+        for(y=0; y<5; y++){
+            console.log(x+y);//logs 1, 2, 3, 4
+            if(y===3){
+                break loop2;
+            }
+        }
+    break loop1;
+    console.log("didn't reach here.")
+}
+
+/**
+ *  break - Used to terminate a loop
+ *      -without a label: used to terminate innermost loop
+ *      - with a lable: used to terminate target loop
+ */
+
+for (var i = 0; i < a.length; i++) {
+  if (a[i] == theValue) {
+    break;
+  }
+}
+
+/**
+ * Continue - used to restart a while, do-while, for, or label statement  
+ *      -without a label: terminates current iteration of innermost loop, and starts next
+ *      -with a label: it applies to the looping statement id'd by the label
+ */
+
+for(var i = 0; i<5; i++){
+    if(i === 2){
+        continue;
+    }
+    console.log(i);
+}
+//consoles 0,1,3,4
+
+/**
+ * for...in - iterates a specified variable over all the enumerable properties of an object
+ *  THIS IS FOR OBJECTS!
+ *      -less efficient for arrays because it returns user def'd props in additon to indexes
+ */
+Given:
+var object= {
+    a:1,
+    b:2,
+    c:3
+}
+for(var i in object){
+    console.log(i);
+    console.log(object[i]);
+}
+//returns a, 1, b, 2, c, 3
+
+/**
+ * for...of - Creates a loop iterating over iterable objects:
+ *      - array
+ *      - Map
+ *      - Set
+ *      - arguments, etc.
+ * 
+ */
+
+let arr = [3, 5, 7];
+arr.foo = 'hello';
+
+for (let i in arr) {
+   console.log(i); // logs "0", "1", "2", "foo"
+}
+
+for (let i of arr) {
+   console.log(i); // logs 3, 5, 7
+}
