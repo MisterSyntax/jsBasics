@@ -1,0 +1,145 @@
+/**
+ * Operators: the do stuff
+ *  binary - requers 2 operands.
+ *      operand1 operator operand2
+ *      e.g. 3+4 or x*y;
+ *  unary - requires 1 operand before or after the operator
+ *      operand operator x++;
+ *      operator operand ++x;
+ */
+
+/**
+ * @Assignment Operator: assigns a value to its left operand based on the value of its right opernad
+ */
+    Name	                Shorthand operator	Meaning
+    Assignment	                x = y	        x = y
+    Addition assignment	        x += y	        x = x + y
+    Subtraction assignment	    x -= y	        x = x - y
+    Multiplication assignment	x *= y	        x = x * y
+    Division assignment	        x /= y	        x = x / y
+    Remainder assignment	    x %= y	        x = x % y
+
+    Exponentiation assignment	x **= y	        x = x ** y
+    //ES7 Proposal
+
+    Left shift assignment	    x <<= y	        x = x << y
+    var bar = 5; //  (00000000000000000000000000000101)
+    bar <<= 2; // 20 (00000000000000000000000000010100)
+
+    Right shift assignment	    x >>= y	        x = x >> y
+    var bar = 5; //   (00000000000000000000000000000101)
+    bar >>= 2;   // 1 (00000000000000000000000000000001)
+
+
+    Unsigned right shift assignment	x >>>= y	x = x >>> y
+    var bar = 5; //   (00000000000000000000000000000101)
+    bar >>>= 2;  // 1 (00000000000000000000000000000001)
+
+    var bar = -5; // (-00000000000000000000000000000101)
+    bar >>>= 2; // 1073741822 (00111111111111111111111111111110)
+
+
+    Bitwise AND assignment	    x &= y	        x = x & y
+    var bar = 5;
+    // 5:           00000000000000000000000000000101
+    // 6:           00000000000000000000000000000110
+    bar &= 6; //4:  00000000000000000000000000000100
+
+    Bitwise XOR assignment	    x ^= y	        x = x ^ y
+    var bar = 5;
+    bar ^= 2; // 7
+    // 5: 00000000000000000000000000000101
+    // 6: 00000000000000000000000000000110
+    // -----------------------------------
+    // 3: 00000000000000000000000000000011
+
+
+    Bitwise OR assignment	    x |= y	        x = x | y
+    var bar = 5;
+    bar |= 6; // 7
+    // 5: 00000000000000000000000000000101
+    // 2: 00000000000000000000000000000110
+    // -----------------------------------
+    // 7: 00000000000000000000000000000111
+
+
+    /**
+     * @Destructuring Assignments - js expression to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals
+     */
+    var foo = ['one', 'two', 'three'];
+
+    // without destructuring
+    var one   = foo[0];
+    var two   = foo[1];
+    var three = foo[2];
+
+    // with destructuring
+    var [one, two, three] = foo;
+
+/**
+ * Comparison Operator: compares its operands and returns a value based on truth
+ */
+
+var var1 = 3;
+var var2 = 4;
+
+Operator	                 Description	                                            Examples returning true
+Equal (==)	                Returns true if the operands are equal.	                    3 == var1 "3" == var1  3 == '3'
+
+Not equal (!=)	            Returns true if the operands are not equal.	                var1 != 4 var2 != "3"
+
+Strict equal (===)	        Returns true if the operands are equal and 
+                                of the same type. See also Object.is and 
+                                sameness in JS.	                                        3 === var1
+
+Strict not equal (!==)	    Returns true if the operands are of the same 
+                             type but not equal, or are of different type.	            var1 !== "3"
+3 !== '3'
+Greater than (>)	        Returns true if the left operand is greater 
+                             than the right operand.	                                var2 > var1     "12" > 2
+
+Greater than or equal (>=)	Returns true if the left operand is greater 
+                                than or equal to the right operand.	                    var2 >= var1 var1 >= 3
+
+Less than (<)	            Returns true if the left operand is less 
+                                than the right operand.	                                var1 < var2 "2" < 12
+
+Less than or equal (<=)	    Returns true if the left operand is less than 
+                                or equal to the right operand.	                        var1 <= var2 var2 <= 5
+
+
+/**
+ * Arithmetic operators - takes numerical values as their operands and returns a single numerical value. 
+ *                          Will convert strings to numerical
+ */
+
+% - Remainder
+++ - Increment
+-- - Decrement
+- Unary Negation: if x is 3, -x is -3
++ Unary PLus: if x is -3, +x is 3
+
+/**
+ * Bitwise operators - treats the operands as a set of 32 bits rather than decimal, hexadecimal, or octal numbers
+ *          -Anything greater than 32 bits will be chopped
+ *          -Fuck that shit
+ */
+
+/**
+ * Logical Operators - typically used with boolean values; and return a boolean values
+ */
+&& AND 
+|| OR
+! NOT 
+    /**
+     * Short-circuit evaluation: evaluated left to right, so if the rules are guaranteed to pass or fail they stop evaluating
+     */
+        false && anything is short-circuit evaluated to false.
+        true || anything is short-circuit evaluated to true.
+
+    var x = 1;
+    function xis2(){x=2;return true;}
+    if(true || xis2()){
+        x=2;
+    }
+    console.log(x);//1
