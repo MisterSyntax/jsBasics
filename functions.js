@@ -186,11 +186,11 @@ result = outside()(20); // returns 20 instead of 10
         
         return {
             setName: function(newName) {
-                name = newName;
+                name = newName;//the name is from outer object
             },
             
             getName: function() {
-                return name;
+                return name;//name from outer function
             },
             
             getSex: function() {
@@ -212,3 +212,123 @@ result = outside()(20); // returns 20 instead of 10
     pet.setSex('male');
     pet.getSex();                   // male
     pet.getName();                  // Oliver
+
+
+/**
+ * @Arguments Object - The arguments of a function are maintained in an array-like object.
+ *      - can be used to call function with more args than defined to accept
+ *      - great if you don't know how many args will be passed to a function
+ */
+    arguments[i];//0-indexed
+
+    function myConcat(separator) {
+    var result = ''; // initialize list
+    var i;
+    // iterate through arguments
+    for (i = 1; i < arguments.length; i++) {
+        result += arguments[i] + separator;
+    }
+    return result;
+    }
+    // returns "red, orange, blue, "
+    myConcat(', ', 'red', 'orange', 'blue');
+
+    // returns "elephant; giraffe; lion; cheetah; "
+    myConcat('; ', 'elephant', 'giraffe', 'lion', 'cheetah');
+
+
+/**
+ * @Function parameters: ES2015 default parameters and rest parameters
+ */
+
+    /**
+     * @Default Parameters: allows you to specifiy a default value for a parameter if it is undefined
+     *     +Reason for: in js parameters default to undefined. So, you should test for undef before using them
+     */
+    function multiply(a, b = 1) {
+        return a * b;
+    }
+
+    multiply(5); // 5
+
+    /**
+     * @Rest Parameters: allows us to represent an indefinite number of arguments as an array.
+     *      ...theArgs - in the below example is a rest parameter
+     */
+     function multiply(multiplier, ...theArgs) {
+        return theArgs.map(x => multiplier * x);
+    }
+
+    var arr = multiply(2, 1, 2, 3);
+    console.log(arr); // [2, 4, 6]
+
+
+    /**
+     * Arrow Functions - a.k.a. fat arrow function
+     *  -always anonymous
+     */
+
+    var a = [
+        'Hydrogen',
+        'Helium',
+        'Lithium',
+        'Beryllium'
+    ];
+
+    var a2 = a.map(function(s) { return s.length; });
+    console.log(a2); // logs [8, 6, 7, 9]
+
+    var a3 = a.map(s => s.length);
+    console.log(a3); // logs [8, 6, 7, 9]
+
+
+/**
+ * @Predefined Functions:
+ */
+
+//eval() -evaluates JavaScript code represented as a string
+    eval('2 + 2');//returns 4
+
+//uneval() - creates a string representation of the source code of an object
+var a = 1;
+uneval(a); // returns a String containing 1
+
+//isFinite() - determines wether the passed value is a finite number; parameter will be converted to number if necessary
+isFinite(4); //true
+isFinite("cat"); //false
+var x = 1;
+isFinite(x); //true
+var y = {a:1};
+isFinite(y);//false
+isFinite(y.a);//true
+
+//isNaN - determines wether a value is NaN or not
+isNaN("acst");//true
+isNaN(4);//false
+
+//parseFloat() - takes a string and returns a floating point number
+parseFloat("4.2");//4.2
+
+//parseInt() - takes a string and returns an integer of the specified radix
+parseInt(' F', 16);//15
+parseInt(' F', 10);//NaN
+parseInt('10',10);//10
+parseInt('15px', 10);//15
+parseInt('15.1', 10);//15
+
+//decodeURI() - decodes a Uniform Resource Identifier created by encodeURI
+decodeURI('https://developer.mozilla.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B');// "https://developer.mozilla.org/ru/docs/JavaScript_шеллы"
+
+//decodeURIComponent() - decodes a URI component created by encodeURIComponent
+decodeURIComponent('JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B');// "JavaScript_шеллы"
+
+//encodeURI - encodes a Uniform Resource Identifier - between 1-4 chars in replacement escaped sequences
+    //except ; , / ? : @ & = + $ alphabetic, decimal digits, - _ . ! ~ * ' ( ) #
+encodeURI("Thyme &time=again");//"Thyme%20&time=again"
+
+//encodeURIComponent() - encodes a URI Component 
+    //-excapes all chares except alphanumeric, decimals, - _ . ! ~ , * ' ( )
+encodeURIComponent("Thyme &time=again");//"Thyme%20%26time%3Dagain"
+
+//escape - deprecated
+//unescape - deprecated
