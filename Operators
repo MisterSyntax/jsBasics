@@ -130,7 +130,7 @@ Less than or equal (<=)	    Returns true if the left operand is less than
  */
 && AND 
 || OR
-! NOT 
+! NOT //!'cat' returens false
     /**
      * Short-circuit evaluation: evaluated left to right, so if the rules are guaranteed to pass or fail they stop evaluating
      */
@@ -143,3 +143,199 @@ Less than or equal (<=)	    Returns true if the left operand is less than
         x=2;
     }
     console.log(x);//1
+
+/**
+ * @String Operators: The + operator can be used on strings to concat them
+ */
+
+console.log ('a'+ ' cat');//returns a cat
+
+/**
+ * @Ternary operator: takes three operands, and takes one value based on a coditon
+ *  condition ? val1 : val2
+ *      -if condition is true val1, else val2
+ */
+
+    var adult  = (age >= 18) ? 'adult' : 'miner';
+
+/**
+ * @Comma operator: evals both of its operand and returns the value of last oeperand
+ */
+
+    for (var i = 0, j = 9; i <= j; i++, j--)
+    console.log('a[' + i + '][' + j + ']= ' + a[i][j]);
+
+/**
+ * Unary Operators: An opeation with only one operand
+ */
+
+    /**
+     * @Delete - deletes an object, obj's property, element in an array's positon
+     *  - can't delete if declared with var
+     *  - deleting an array element doesn't affect array's length. replaces array element with an undefined
+     */
+
+        delete objectName;
+        delete objectName.property;
+        delete objectName[index];
+        delete property; // legal only within a with statement
+
+        var a = [1,2,3,4]
+        delete a[2]; //returns true
+        console.log(a); //[1, 2, undefined × 1, 4]
+
+        x = 42;
+        var y = 43;
+        myobj = new Number();
+        myobj.h = 4;    // create property h
+        delete x;       // returns true (can delete if declared implicitly)
+        delete y;       // returns false (cannot delete if declared with var)
+        delete Math.PI; // returns false (cannot delete predefined properties)
+        delete myobj.h; // returns true (can delete user-defined properties)
+        delete myobj;   // returns true (can delete if declared implicitly)
+
+
+    /**
+     * typeof operator - returns type
+     */
+        var myFun = new Function('5 + 2');
+        var shape = 'round';
+        var size = 1;
+        var foo = ['Apple', 'Mango', 'Orange'];
+        var today = new Date();
+        The typeof operator returns the following results for these variables:
+
+        typeof myFun;       // returns "function"
+        typeof shape;       // returns "string"
+        typeof size;        // returns "number"
+        typeof foo;         // returns "object"
+        typeof today;       // returns "object"
+        typeof doesntExist; // returns "undefined"
+
+        typeof null; // returns "object"
+        typeof document.lastModified; // returns "string"
+        typeof window.length;         // returns "number"
+
+
+    /**
+     * @Void operator - specifies an expression to be evaluated without returning a value
+     *  void (expression)
+     *  void expression
+     *  -Can use the void operator to specify an expression in an a href=""
+     */
+
+        <a href="javascript:void(0)">Click here to do nothing</a>
+        <a href="javascript:void(document.form.submit())">
+        Click here to submit</a>
+
+
+/**
+ * @Relation operators - Compares its operands and returns a Boolean based on wether the comparision is true
+ */
+
+    /**
+     * @in - returns true if the property is in the specified object
+     */
+    // Arrays
+        var trees = ['redwood', 'bay', 'cedar', 'oak', 'maple'];
+        0 in trees;        // returns true
+        3 in trees;        // returns true
+        6 in trees;        // returns false
+        'bay' in trees;    // returns false (you must specify the index number,
+                        // not the value at that index)
+        'length' in trees; // returns true (length is an Array property)
+
+        // built-in objects
+        'PI' in Math;          // returns true
+        var myString = new String('coral');
+        'length' in myString;  // returns true
+
+        // Custom objects
+        var mycar = { make: 'Honda', model: 'Accord', year: 1998 };
+        'make' in mycar;  // returns true
+        'model' in mycar; // returns true
+
+    /**
+     * @Instanceof - returns true if the object is a of the type
+     *      objectName instanceof objectType
+     */
+        var theDay = new Date(1995, 12, 17);
+        if (theDay instanceof Date) {
+            // statements to execute
+        }
+    
+/**
+ * Operator presedence
+ */
+
+member                      . []
+call/create instance        () new 
+negation/increment          ! ~ - ++ -- typeof void delete
+multply/divide              * / %
+bitwise shift	<< >> >>>
+relational	< <= > >= in instanceof
+equality	== != === !==
+bitwise-and	&
+bitwise-xor	^
+bitwise-or	|
+logical-and	&&
+logical-or	||
+conditional	?:
+assignment	= += -= *= /= %= <<= >>= >>>= &= ^= |=
+comma	,
+
+/**
+ * @Expressions - Any valid unit of code that resolves to a value
+ *      -two types
+ *          -with side effects: those that assign a value to a variables
+ *             -those that evaluate and therefore resolve
+ */
+    //Assign: 
+    x = 7;
+    //Those that evaluate to a value and resolve 
+    3 +5
+    /**
+     * Expression Categories:  
+     *  Arithmatic - evAluates to a number
+     *  String: evaluates to a char string
+     *  Logical: eval to true or false
+     *  Primary: basic keywords and general expressons n js
+     *  Left-hand-side expressions: left values are the destination of an assignment
+     */
+
+     /**
+      * @Primary Expressions: basic keywords and general expressions in js
+      */
+            //this -used to refer to the current Object
+            //generally to the calling obj in a method
+            this
+            this['property']
+            this.property
+            ele.onChange= validate(this, 18, 99);
+
+            /**
+             * Grouping operator - () - Controls precedence of evaluation in expressions
+             * PEMDAS
+             */
+
+            /**
+             * @Left-hand-side expression - left values the destination of assingment
+             *  new - can use the new operator to create a new instance of a user-defined object type, or built in 
+             */
+                var objectName = new objectType([param1, param2, ..., paramN]);
+
+            /**
+             * @super -used to call functions on the obj's parent
+             */
+            super([arguments]); // calls the parent constructor.
+            super.functionOnParent([arguments]);
+
+            /**
+             * @Spread operator - ... - allows an expression to be expanded in places where multiple arguments(func) or elements(array literals) expected 
+             */
+            var parts = ['shoulder', 'knees'];
+            var lyrics = ['head', ...parts, 'and', 'toes'];
+
+            function f(x, y, z) { }
+            var args = [0, 1, 2];
+            f(...args);
