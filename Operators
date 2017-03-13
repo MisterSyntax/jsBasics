@@ -1,11 +1,15 @@
 /**
- * Operators: the do stuff
+ * Operators: they do stuff
  *  binary - requers 2 operands.
  *      operand1 operator operand2
  *      e.g. 3+4 or x*y;
  *  unary - requires 1 operand before or after the operator
  *      operand operator x++;
  *      operator operand ++x;
+ *  Operators are used in expressions
+ * Expressions - Unit of code which resolves to a value
+ *  -would have at least one operator
+ *  -(e.g. 4+3 or x=3;)
  */
 
 /**
