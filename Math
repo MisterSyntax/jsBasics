@@ -1,0 +1,29 @@
+/**
+ * @description: Math object
+ *  -has methods and propertited for math constants and functions
+ */
+abs()//absolute value
+sin(),cos(),tan()//trig functions, arguments in radians
+asin(),acos(),atan(),atan2()//inverse trig functions; returns in radians
+sinh(),cosh(),tanh()//hyperbolic functions; argument in hyperbolic angle
+asinh(),acosh(),atanh()//inverse hyperbolic functions; return values in hyperbolc angle
+pow(),exp(),expm1(),log10(),log1p(),log()//exponential and logarithmic functions
+floor(),ceil()//returns largest/smallest integer less/greater or equal to argument
+    Math.floor( 45.95); //  45
+    Math.floor( 45.05); //  45
+    Math.floor(  4   ); //   4
+    Math.floor(-45.05); // -46 
+    Math.floor(-45.95); // -46
+    Math.ceil(.95);    // 1
+    Math.ceil(4);      // 4
+    Math.ceil(7.004);  // 8
+    Math.ceil(-0.95);  // -0
+    Math.ceil(-4);     // -4
+    Math.ceil(-7.004); // -7
+min(),max()// returns lesser or greater of comma separated list of num args
+    Math.min(10,-20);//-20
+    Math.max(1,2,1000);//1000
+random();//returns a random number between 0(inclusive) and 1(exclusive)
+//to get a range of 0-x
+Math.floor(Math.random() * x);
+round(),fround(),trunc();//rounding and truncation functions
