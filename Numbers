@@ -1,0 +1,89 @@
+/**
+ * @description: Numbers
+ *     All are between -(253 -1) and 253 -1)
+ *      -there is no type for integers
+ *      - (+Infinity)
+ *      - (-Infinity)
+ *      - NaN
+ *     There are 4 types of number literals:
+ *      -Decimal
+ *      -Binary
+ *      -octal
+ *      -hexadecimal
+ */
+
+/**
+ * @description:Decimal Numbers
+ */
+1234567890
+42
+
+// Caution when using leading zeros:
+
+0888 // 888 parsed as decimal
+0777 // parsed as octal in non-strict mode (511 in decimal)
+//Uf every dugutt after tge keadubg 0 is smaller than 8 gets parsed as octal
+
+/**
+ * @description:Binary Numbers
+ * @Syntax: Leading 0 followed by a lowercase or uppercase Binary
+ * -digits after must be a 0 or 1
+ */
+var FLT_SIGNBIT  = 0b10000000000000000000000000000000; // 2147483648
+var FLT_EXPONENT = 0b01111111100000000000000000000000; // 2139095040
+var FLT_MANTISSA = 0B00000000011111111111111111111111; // 8388607
+
+/**
+ * @description:Octal Numbers
+ * @Syntax: leading 0, all numbers after must be less than 8 or treated as decimal
+ * @Note: Strict mode forbids octal Syntax
+ */
+
+017//15
+09//9
+
+
+/**
+ * @description: hexadecimal Numbers
+ * @Syntax: 0x followed by 0-9 or A-F
+ */
+OXA//10
+OXA1//161 =10*16^1+1*16^0
+
+/**
+ * @description: Exponentation
+ * @Syntax: <Number>E<power>
+ * number *10^power
+ */
+1.3E2//130
+2e3//2000
+
+/**
+ * @description:Number Object
+ *  -has numerical constants
+ */
+Number.MAX_VALUE 	The largest representable number
+Number.MIN_VALUE 	The smallest representable number
+Number.NaN 	Special "not a number" value
+Number.NEGATIVE_INFINITY 	Special negative infinite value; returned on overflow
+Number.POSITIVE_INFINITY 	Special positive infinite value; returned on overflow
+Number.EPSILON 	Difference between one and the smallest value greater than one that can be represented as a Number.
+Number.MIN_SAFE_INTEGER 	Minimum safe integer in JavaScript.
+Number.MAX_SAFE_INTEGER 	Maximum safe integer in JavaScript.
+
+/**
+ * @description: Number Object Methods
+ */
+Number.parseFloat()//parses a string to a floating point number
+Number.parseInt()//parses a string argument and returns an nteger of a specified radix or base
+Number.isFinite()//determines wether the passed calue is a finite number
+Number.isInteger()//determines whether the passed value is an integer
+Number.isNaN()//determines whether the value passed is NaN
+Number.isSafeInteger()//returns true if safe integer
+
+/**
+ * @description: Number.prototype Methods
+ */
+toExpoential()//returns a string representing the number in exponential notation
+toFixed()//returns a string representing the number in fixed-point notation
+toPrecision()//retirms a string to a specfied precison
