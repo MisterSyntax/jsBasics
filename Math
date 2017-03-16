@@ -27,3 +27,7 @@ random();//returns a random number between 0(inclusive) and 1(exclusive)
 //to get a range of 0-x
 Math.floor(Math.random() * x);
 round(),fround(),trunc();//rounding and truncation functions
+
+sqrt(),cbrt(),hypot();//square root, cube root, square root of the sum of the squares of its arguments
+sign();//sign of a number wether its pos, neg, zero
+
