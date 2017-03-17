@@ -1,0 +1,61 @@
+/**
+ * @description: RegEx js
+ *  -RegEx literal:
+ *   var re = /ab+c/;
+ *      -If the RegEx will remain constant use this. Better performance
+ *  -RegExp constructor for a RegEx regexObj.
+ *   var re = new RegExp('ab+c');
+ *      -Use if RegEx is goning to change or have Vars
+ */
+
+/**
+ * @description: executes a search for a match in a specified string. Returns a result array, or null.
+ * @param {string} str - a string you want to execute the RegEx on
+ * @returns {array} - an array of matches or null if mismatch
+ */
+regexObj.exec(str);
+
+// Match "quick brown" followed by "jumps", ignoring characters in between
+// Remember "brown" and "jumps"
+// Ignore case
+var re = /quick\s(brown).+?(jumps)/ig;
+var result = re.exec('The Quick Brown Fox Jumps Over The Lazy Dog');
+
+
+
+/**
+ * @description: executes a search for a match between a regular expression and a specified string. Returns true or false.
+ * @param {string} str - a string you want to execute the RegEx on
+ * @returns {boolean} - true or false wether it matched
+ */
+regexObj.test(str);
+var str = 'hello world!';
+var result = /^hello/.test(str);
+console.log(result); // true
+
+
+/**
+ * @description: Retrieves the matches when matching a string against a regular expression.
+ * @param {string} regexp - a regular expression you want to match on the string
+ * @returns {array} - An array of the matches
+ */
+str.match(regexp);
+
+
+/**
+ * @description: Returns a new string with some or all matches of a pattern replaced by a replacement
+ * @param {regexp|string} regexp - a regular expression or substring you want to find
+ * @param {string|function} nuwsub - a replacement string, or a function you want to run on the results of the matches
+ * @returns {string} - A new string with some or all matches of a pattern replaced by a replacement.
+ */
+str.replace(regexp|substr, newSubstr|function);
+
+
+/**
+ * @description: Splits a String object into an array of strings by separating the string into substrings.
+ * @param {string} regexp - a regular expression you want to use to split up the string
+ * @returns {array} - An array of the splits
+ */
+str..split([separator[, limit]])
+
+
